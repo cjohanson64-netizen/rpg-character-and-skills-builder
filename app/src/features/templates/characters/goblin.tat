@@ -1,0 +1,20 @@
+goblin = <{ id: "goblin", type: "enemy", name: "Goblin" }>
+
+@seed:
+  nodes: [goblin]
+  edges: []
+  state: {}
+  meta: {}
+  root: goblin
+
+goblinCharacter := @seed
+  -> @graft.state(goblin, "hp", 6)
+  -> @graft.state(goblin, "atk", 3)
+  -> @graft.state(goblin, "def", 1)
+  -> @graft.state(goblin, "int", 1)
+  -> @graft.state(goblin, "res", 1)
+  -> @graft.state(goblin, "spd", 3)
+  -> @graft.meta(goblin, "description", "A weak enemy preset for early encounters.")
+  <> @project(format: "graph")
+
+export { goblin, goblinCharacter }

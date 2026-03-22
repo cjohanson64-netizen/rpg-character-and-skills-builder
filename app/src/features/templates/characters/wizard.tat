@@ -1,0 +1,20 @@
+wizard = <{ id: "wizard", type: "hero", name: "Wizard" }>
+
+@seed:
+  nodes: [wizard]
+  edges: []
+  state: {}
+  meta: {}
+  root: wizard
+
+wizardCharacter := @seed
+  -> @graft.state(wizard, "hp", 9)
+  -> @graft.state(wizard, "atk", 2)
+  -> @graft.state(wizard, "def", 1)
+  -> @graft.state(wizard, "int", 7)
+  -> @graft.state(wizard, "res", 5)
+  -> @graft.state(wizard, "spd", 3)
+  -> @graft.meta(wizard, "description", "A magic-focused archetype with high intelligence.")
+  <> @project(format: "graph")
+
+export { wizard, wizardCharacter }

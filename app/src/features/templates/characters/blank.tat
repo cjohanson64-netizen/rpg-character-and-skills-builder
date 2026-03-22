@@ -1,0 +1,20 @@
+root = <{ id: "root", type: "hero", name: "New Character" }>
+
+@seed:
+  nodes: [root]
+  edges: []
+  state: {}
+  meta: {}
+  root: root
+
+blankCharacter := @seed
+  -> @graft.state(root, "hp", 10)
+  -> @graft.state(root, "atk", 2)
+  -> @graft.state(root, "def", 2)
+  -> @graft.state(root, "int", 2)
+  -> @graft.state(root, "res", 2)
+  -> @graft.state(root, "spd", 2)
+  -> @graft.meta(root, "description", "A blank character template.")
+  <> @project(format: "graph")
+
+export { root, blankCharacter }

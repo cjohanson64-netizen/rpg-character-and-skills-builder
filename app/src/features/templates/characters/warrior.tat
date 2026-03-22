@@ -1,0 +1,20 @@
+warrior = <{ id: "warrior", type: "hero", name: "Warrior" }>
+
+@seed:
+  nodes: [warrior]
+  edges: []
+  state: {}
+  meta: {}
+  root: warrior
+
+warriorCharacter := @seed
+  -> @graft.state(warrior, "hp", 16)
+  -> @graft.state(warrior, "atk", 5)
+  -> @graft.state(warrior, "def", 5)
+  -> @graft.state(warrior, "int", 1)
+  -> @graft.state(warrior, "res", 3)
+  -> @graft.state(warrior, "spd", 2)
+  -> @graft.meta(warrior, "description", "A durable melee archetype built for frontline combat.")
+  <> @project(format: "graph")
+
+export { warrior, warriorCharacter }

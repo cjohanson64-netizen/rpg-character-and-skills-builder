@@ -1,0 +1,20 @@
+boss = <{ id: "boss", type: "enemy", name: "Warlord Boss" }>
+
+@seed:
+  nodes: [boss]
+  edges: []
+  state: {}
+  meta: {}
+  root: boss
+
+bossCharacter := @seed
+  -> @graft.state(boss, "hp", 30)
+  -> @graft.state(boss, "atk", 8)
+  -> @graft.state(boss, "def", 6)
+  -> @graft.state(boss, "int", 4)
+  -> @graft.state(boss, "res", 5)
+  -> @graft.state(boss, "spd", 3)
+  -> @graft.meta(boss, "description", "A stronger enemy preset for boss encounters.")
+  <> @project(format: "graph")
+
+export { boss, bossCharacter }

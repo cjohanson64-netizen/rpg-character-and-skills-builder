@@ -1,0 +1,20 @@
+viper = <{ id: "viper", type: "enemy", name: "Fang Viper" }>
+
+@seed:
+  nodes: [viper]
+  edges: []
+  state: {}
+  meta: {}
+  root: viper
+
+viperCharacter := @seed
+  -> @graft.state(viper, "hp", 9)
+  -> @graft.state(viper, "atk", 4)
+  -> @graft.state(viper, "def", 2)
+  -> @graft.state(viper, "int", 1)
+  -> @graft.state(viper, "res", 2)
+  -> @graft.state(viper, "spd", 5)
+  -> @graft.meta(viper, "description", "A poison-focused enemy with lethal strikes.")
+  <> @project(format: "graph")
+
+export { viper, viperCharacter }

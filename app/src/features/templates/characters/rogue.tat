@@ -1,0 +1,20 @@
+rogue = <{ id: "rogue", type: "hero", name: "Shade" }>
+
+@seed:
+  nodes: [rogue]
+  edges: []
+  state: {}
+  meta: {}
+  root: rogue
+
+rogueCharacter := @seed
+  -> @graft.state(rogue, "hp", 10)
+  -> @graft.state(rogue, "atk", 4)
+  -> @graft.state(rogue, "def", 2)
+  -> @graft.state(rogue, "int", 2)
+  -> @graft.state(rogue, "res", 2)
+  -> @graft.state(rogue, "spd", 6)
+  -> @graft.meta(rogue, "description", "An agile striker who relies on speed and precision.")
+  <> @project(format: "graph")
+
+export { rogue, rogueCharacter }

@@ -1,0 +1,20 @@
+cleric = <{ id: "cleric", type: "hero", name: "Mira" }>
+
+@seed:
+  nodes: [cleric]
+  edges: []
+  state: {}
+  meta: {}
+  root: cleric
+
+clericCharacter := @seed
+  -> @graft.state(cleric, "hp", 12)
+  -> @graft.state(cleric, "atk", 2)
+  -> @graft.state(cleric, "def", 3)
+  -> @graft.state(cleric, "int", 5)
+  -> @graft.state(cleric, "res", 5)
+  -> @graft.state(cleric, "spd", 2)
+  -> @graft.meta(cleric, "description", "A support-focused healer with strong resistance.")
+  <> @project(format: "graph")
+
+export { cleric, clericCharacter }

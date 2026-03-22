@@ -1,0 +1,20 @@
+spider = <{ id: "spider", type: "enemy", name: "Cave Spider" }>
+
+@seed:
+  nodes: [spider]
+  edges: []
+  state: {}
+  meta: {}
+  root: spider
+
+spiderCharacter := @seed
+  -> @graft.state(spider, "hp", 7)
+  -> @graft.state(spider, "atk", 3)
+  -> @graft.state(spider, "def", 1)
+  -> @graft.state(spider, "int", 1)
+  -> @graft.state(spider, "res", 2)
+  -> @graft.state(spider, "spd", 5)
+  -> @graft.meta(spider, "description", "A venom-flavored enemy with quick movement.")
+  <> @project(format: "graph")
+
+export { spider, spiderCharacter }

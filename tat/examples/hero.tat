@@ -1,0 +1,19 @@
+hero = <{ id: "hero", type: "character", name: "Aria" }>
+quest = <{ id: "quest", type: "quest", name: "Find the relic" }>
+inventory = <{ id: "inventory", type: "inventory" }>
+
+@seed:
+  nodes: [hero, quest, inventory]
+  edges: [
+    [hero : "tracks" : quest]
+  ]
+  state: {}
+  meta: {}
+  root: hero
+
+heroGraph := @seed
+  -> @graft.state(hero, "hp", 10)
+  -> @graft.meta(quest, "difficulty", "easy")
+  <> @project(format: "graph")
+
+export { hero, quest, inventory, heroGraph }

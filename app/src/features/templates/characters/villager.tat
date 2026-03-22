@@ -1,0 +1,20 @@
+villager = <{ id: "villager", type: "npc", name: "Town Villager" }>
+
+@seed:
+  nodes: [villager]
+  edges: []
+  state: {}
+  meta: {}
+  root: villager
+
+villagerCharacter := @seed
+  -> @graft.state(villager, "hp", 8)
+  -> @graft.state(villager, "atk", 1)
+  -> @graft.state(villager, "def", 1)
+  -> @graft.state(villager, "int", 1)
+  -> @graft.state(villager, "res", 1)
+  -> @graft.state(villager, "spd", 1)
+  -> @graft.meta(villager, "description", "A simple non-combatant townsperson.")
+  <> @project(format: "graph")
+
+export { villager, villagerCharacter }

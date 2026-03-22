@@ -1,0 +1,20 @@
+rat = <{ id: "rat", type: "enemy", name: "Sewer Rat" }>
+
+@seed:
+  nodes: [rat]
+  edges: []
+  state: {}
+  meta: {}
+  root: rat
+
+ratCharacter := @seed
+  -> @graft.state(rat, "hp", 5)
+  -> @graft.state(rat, "atk", 2)
+  -> @graft.state(rat, "def", 1)
+  -> @graft.state(rat, "int", 1)
+  -> @graft.state(rat, "res", 1)
+  -> @graft.state(rat, "spd", 4)
+  -> @graft.meta(rat, "description", "A weak swarm-like pest enemy.")
+  <> @project(format: "graph")
+
+export { rat, ratCharacter }

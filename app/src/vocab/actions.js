@@ -1,0 +1,42 @@
+export const ACTION_VOCAB = {
+  attack: {
+    id: "attack",
+    label: "Attack",
+    description: "Perform a basic attack against a target.",
+    kind: "combat",
+    targetType: "actor",
+    effectTypes: ["damage"],
+  },
+  equip: {
+    id: "equip",
+    label: "Equip",
+    description: "Equip an item or piece of gear.",
+    kind: "equipment",
+    targetType: "object",
+    effectTypes: [],
+  },
+  useItem: {
+    id: "useItem",
+    label: "Use Item",
+    description: "Consume or activate an item.",
+    kind: "item",
+    targetType: "object",
+    effectTypes: ["heal", "poison", "freeze"],
+  },
+  guard: {
+    id: "guard",
+    label: "Guard",
+    description: "Take a defensive stance to reduce incoming pressure.",
+    kind: "defense",
+    targetType: "self",
+    effectTypes: [],
+  },
+  cast: {
+    id: "cast",
+    label: "Cast",
+    description: "Cast a skill or spell-like ability.",
+    kind: "skill",
+    targetType: "actor",
+    effectTypes: ["damage", "heal", "confuse", "stun", "freeze"],
+  },
+};
